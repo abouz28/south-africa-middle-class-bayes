@@ -1,0 +1,25 @@
+# R session state, not reproducible artifacts
+.RData
+.Rhistory
+.Rapp.history
+.Ruserdata
+.Rproj.user/
+Rplots.pdf
+
+# Apple working files, superseded by the exports
+*.numbers
+*.pages
+
+# Coursework documents kept locally but deliberately not published.
+# The presentation materials were produced by my project partner; the written
+# sections and proposal belong to the course submission rather than the code.
+Bayes project.pdf
+Presenter Notes.pdf
+Sections B & C.docx
+
+# A 20-column variant of the input that no script reads. Kept locally until it is
+# clear whether it, or "Bayes Project Data.xlsx", is the authoritative input.
+Bayes Project Data Final.xlsx
+
+# OS cruft
+.DS_Store
