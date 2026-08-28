@@ -4,7 +4,7 @@ library(dplyr)
 library(stringr)
 
 ## 1. Read the Excel file ----
-df_raw <- read_excel("../Bayes Project Data.xlsx", sheet = 1)
+df_raw <- read_excel("../data/raw/Bayes Project Data.xlsx", sheet = 1)
 
 # Take a quick look at the column names
 names(df_raw)
@@ -96,4 +96,4 @@ df_filled %>%
   select(Year, total_p) %>%
   head(25)
 
-write_xlsx(df_filled, "../Bayes_Project2.xlsx")
+write_xlsx(df_filled, "../data/processed/Bayes_Project2.xlsx")

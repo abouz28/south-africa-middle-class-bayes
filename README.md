@@ -65,26 +65,39 @@ frequentist point estimates, to see where the prior matters and where it washes 
 Both statistical philosophies tell the same story. The Bayesian version tells it with the
 uncertainty attached.
 
-![Middle-income share over time](Middle%20Income%20Population%20Share.png)
+![Middle-income share over time](figures/Middle%20Income%20Population%20Share.png)
 
-## Repository contents
+## Repository layout
 
-| File | Description |
+```
+analysis.R                  main analysis, start here
+data/
+  raw/                      source spreadsheets, never modified by any script
+  processed/                imputed datasets and the final presented figures
+figures/                    generated charts
+attempts/                   three approaches tried and set aside, with a note on why
+```
+
+| Path | Description |
 |---|---|
 | `analysis.R` | **Main analysis.** Full pipeline: load, clean, impute, define income groups, plot, Beta-Binomial model, comparison table |
-| `Bayes Project Data.xlsx` | **Primary input.** Year, employment, population, real GDP growth, tax-paid shares, population shares by bracket |
-| `Data to feed into our model.xlsx` | Earlier input, read only by the scripts in `attempts/` |
-| `attempts/` | Three approaches tried and set aside, with a note on why each failed. See `attempts/README.md` |
-| `Bayes_Project3.xlsx` | Imputed dataset produced by the frequentist stage |
-| `Bayes_Project2.xlsx`, `data_with_imputed_tax_shares2.xlsx`, `Bayes_Project_with_imputed_shares_and_middle_class.xlsx` | Outputs from the earlier attempts, kept so results are browsable without running R |
-| `*.png` | Generated figures |
+| `data/raw/Bayes Project Data.xlsx` | **Primary input.** Year, employment, population, real GDP growth, tax-paid shares, population shares by bracket |
+| `data/raw/Data to feed into our model.xlsx` | Earlier input, read only by the scripts in `attempts/` |
+| `data/processed/Bayes Project Data Final.xlsx` | The final numbers as presented, carrying the derived columns built on top of the primary input |
+| `data/processed/Bayes_Project3.xlsx` | Imputed dataset written by the frequentist stage of `analysis.R`'s method |
+| `data/processed/Bayes_Project2.xlsx`, `data_with_imputed_tax_shares2.xlsx`, `Bayes_Project_with_imputed_shares_and_middle_class.xlsx` | Outputs from the archived attempts, kept so results are browsable without running R |
+| `figures/*.png` | Generated charts |
+| `attempts/` | Superseded approaches. See `attempts/README.md` |
 
 ## Running it
 
 ```r
-# from this directory
+# from the repository root
 source("analysis.R")
 ```
+
+All paths in `analysis.R` are relative to the repository root. The scripts in
+`attempts/` are relative to `attempts/`, so run those from inside that directory.
 
 Requires: `readxl`, `dplyr`, `tidyr`, `writexl`, `ggplot2`, `scales`, `knitr`.
 

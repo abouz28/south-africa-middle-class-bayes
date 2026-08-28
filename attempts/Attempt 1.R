@@ -2,7 +2,7 @@ library(readxl)
 library(dplyr)
 
 # Read the sheet, treating the first row as data, not header
-raw <- read_excel("../Data to feed into our model.xlsx", sheet = 1, col_names = FALSE)
+raw <- read_excel("../data/raw/Data to feed into our model.xlsx", sheet = 1, col_names = FALSE)
 
 # Manually set nicer column names
 names(raw) <- c("Year", "Employed", "Unemployed", "UnempRate", 
@@ -60,4 +60,4 @@ df_filled <- bind_rows(known, pred_missing) %>%
   arrange(Year)
 
 library(writexl)
-write_xlsx(df_filled, "../data_with_imputed_tax_shares2.xlsx")
+write_xlsx(df_filled, "../data/processed/data_with_imputed_tax_shares2.xlsx")

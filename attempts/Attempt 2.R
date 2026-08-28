@@ -2,7 +2,7 @@ library(readxl)
 library(dplyr)
 library(writexl)
 
-df <- read_excel("../Data to feed into our model.xlsx", col_names = FALSE)
+df <- read_excel("../data/raw/Data to feed into our model.xlsx", col_names = FALSE)
 
 names(df) <- c(
   "Year", "Employed", "Unemployed", "UnempRate",
@@ -102,4 +102,4 @@ df_final <- df_counts %>%
   )
 
 ## 8. Save results for plotting / Excel / further analysis ----
-write_xlsx(df_final, "../Bayes_Project_with_imputed_shares_and_middle_class.xlsx")
+write_xlsx(df_final, "../data/processed/Bayes_Project_with_imputed_shares_and_middle_class.xlsx")

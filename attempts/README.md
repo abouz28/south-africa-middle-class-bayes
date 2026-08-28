@@ -12,7 +12,7 @@ source("Attempt 3.R")
 ```
 
 Attempts 1 and 2 emit `NAs introduced by coercion` warnings. These are real and
-expected: both read `Data to feed into our model.xlsx` with `col_names = FALSE` and
+expected: both read `data/raw/Data to feed into our model.xlsx` with `col_names = FALSE` and
 coerce every column to numeric, so any non-numeric cell in that older spreadsheet
 becomes `NA`. The scripts still complete. This is left as-is rather than patched,
 since these are archived dead ends and the warning is accurately reporting a
@@ -20,7 +20,7 @@ limitation of the input they were written against.
 
 ## Attempt 1: impute the tax-paid shares
 
-Reads `Data to feed into our model.xlsx`. Fits `tax share ~ Year + UnempRate` on the
+Reads `data/raw/Data to feed into our model.xlsx`. Fits `tax share ~ Year + UnempRate` on the
 observed years and back-casts the missing ones, pinning the lowest bracket to zero and
 renormalizing.
 
@@ -42,7 +42,7 @@ choice moves the answer substantially.
 
 ## Attempt 3: quadratic year trend
 
-Reads `Bayes Project Data.xlsx` and switches to imputing the population shares
+Reads `data/raw/Bayes Project Data.xlsx` and switches to imputing the population shares
 directly, which is the right target. Fits `population share ~ poly(Year, 2)`.
 
 Set aside because the quadratic is fit on only 13 observed years and then extrapolated

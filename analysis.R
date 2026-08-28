@@ -14,7 +14,7 @@ library(knitr)
 ## 1. Read & rename the Excel data
 ############################################################
 
-df <- read_excel("Bayes Project Data.xlsx", sheet = 1)
+df <- read_excel("data/raw/Bayes Project Data.xlsx", sheet = 1)
 
 # Give clear column names (15 columns total)
 names(df) <- c(
